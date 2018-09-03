@@ -7,24 +7,28 @@
         
     </head>
         <body style='margin : 0px; overflow: hidden;'>
-        
+        <div style='position: fixed; top: 10px; width:100%; text-align: left;z-index:1; color: grey;'>
+            <button id="connect">Connect</button> <button id="send">Send</button> 
+                    <span id="status"></span>
+                    <label for="position">Position</label>
+        </div>
         <a-scene embedded arjs='sourceType: webcam;'>
                 <a-assets>
                     <img id="rotation" src="images/rotation.png" />
-                    <img id="pressure" src="Images/pressure.png"/>
-                    <img id="temperature" src="Images/temperature.png">
+                    <img id="pressure" src="images/pressure.png"/>
+                    <img id="temperature" src="images/temperature.png">
                 </a-assets>
   
   <!-- main marker area -->
+    <p>
+        <button id="connect">Connect</button> <button id="send">Send</button> 
+        <span id="status"></span>
+        <label for="position">Position</label>
+        <!-- <h4 id="valPos">
+        </h4> -->
+    </p>
       <a-marker preset='hiro'>
-            <p>
-                    <button id="connect">Connect</button> <button id="send">Send</button> 
-                    <span id="status"></span>
-                    <label for="position">Position</label>
-                    <!-- <h4 id="valPos">
-                    </h4> -->
-                    
-            </p>
+           
           <!-- Temprature sensor region -->
             
               <a-image src="#temperature"  rotation="270 0 0" height="0.4" width="0.4" position="0 0 -1" opacity="1"></a-image>
