@@ -1,0 +1,69 @@
+<html>
+    <head>
+            <script src="js/serial.js"></script>
+            <script src="js/data.js"></script>
+            <!-- <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+                <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script> -->
+
+            
+        <script>
+	//     var config = {
+	//         apiKey: "AIzaSyDo1Jz7FTyOxmkdw3B2IixfSNxQJiGpvnw",
+	//         authDomain: "test-eefa2.firebaseapp.com",
+	//         databaseURL: "https://test-eefa2.firebaseio.com",
+	//         projectId: "test-eefa2",
+	//         storageBucket: "test-eefa2.appspot.com",
+	//         messagingSenderId: "334050492647"
+	//     };
+	//     firebase.initializeApp(config);
+	//     const dataref = firebase.database().ref("angle");
+    //     const dataref1 = firebase.database().ref("pressure");
+    //  //   const dataref2 = firebase.database().ref("temprature");
+    //    // const dataref3 = firebase.database().ref("Object");
+        
+    //     dataref.on('value', snap =>{
+    //         var val=snap.val();
+    //     });
+        
+    //     dataref1.on('value', snap =>{
+    //         var val=snap.val();
+    //         var pressure = document.querySelector('#pressure');
+    //         pressure.setAttribute("value",val+" Pa");
+    //     });
+
+        //  dataref2.on('value', snap =>{
+        //     var val=snap.val();
+        //     var temprature = document.querySelector('#temprature');
+        //     temprature.setAttribute("value",val+"°C");
+        // });
+
+        // dataref3.on('value', snap =>{
+        //     var val=snap.val();
+        //     var angle1 = document.querySelector('#angle1');
+        //     var angle2 = document.querySelector('#angle2');
+        //     var angle3 = document.querySelector('#angle3');
+        //     angle1.setAttribute("value",val.angle1);
+        //     angle2.setAttribute("value",val.angle2);
+        //     angle3.setAttribute("value",val.angle3);
+        // });
+
+        </script>
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+
+    </head>
+        <body style='margin : 0px; overflow: hidden;'>
+        <p>
+                <button id="connect">Connect</button> 
+                <span id="status"></span>
+                <label for="position">Position</label>
+                <h4 id="valPos">
+                </h4>
+                <button id="send">Send</button> 
+        </p>
+        </body>
+</html>

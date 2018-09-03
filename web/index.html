@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="js/serial.js"></script>
+        <script src="js/data.js"></script>
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+        
+    </head>
+        <body style='margin : 0px; overflow: hidden;'>
+        
+        <a-scene embedded arjs='sourceType: webcam;'>
+                <a-assets>
+                    <img id="rotation" src="images/rotation.png" />
+                    <img id="pressure" src="Images/pressure.png"/>
+                    <img id="temperature" src="Images/temperature.png">
+                </a-assets>
+  
+  <!-- main marker area -->
+      <a-marker preset='hiro'>
+            <p>
+                    <button id="connect">Connect</button> <button id="send">Send</button> 
+                    <span id="status"></span>
+                    <label for="position">Position</label>
+                    <!-- <h4 id="valPos">
+                    </h4> -->
+                    
+            </p>
+          <!-- Temprature sensor region -->
+            
+              <a-image src="#temperature"  rotation="270 0 0" height="0.4" width="0.4" position="0 0 -1" opacity="1"></a-image>
+              <a-text value="20°C" id="temp" rotation="270 0 0" position="0 0 -1"  width="4" color="black"></a-text>
+              <!-- Temprature sensor end -->
+          </a-marker>
+        <!-- main marker end   -->
+  
+  
+          <!-- <a-marker preset='kanji'>
+                      <a-box color="orange"  position="0 0.5 0" rotation="0 0 -0.5" depth="1.5" height="0.01" width="2.5">      
+                          </a-box>
+                          <a-text value="Pressure Sensor:"   rotation="270 0 0" position="-1 0.6 -0.3"  width="6" color="black"></a-text>                        
+                          <a-text value="Hello A-Frame!" id="pressureSensor"  rotation="270 0 0" position="-1 0.6 0"  width="4" color="black"></a-text>
+              </a-marker> -->
+              <a-entity camera></a-entity>
+            </a-scene>
+        </body>
+</html>

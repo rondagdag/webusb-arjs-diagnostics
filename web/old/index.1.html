@@ -1,0 +1,109 @@
+<html>
+    <head>
+            <script src="js/serial.js"></script>
+            <script src="js/data.js"></script>
+            <!-- <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+                <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script> -->
+        <script>
+	//     var config = {
+	//         apiKey: "AIzaSyDo1Jz7FTyOxmkdw3B2IixfSNxQJiGpvnw",
+	//         authDomain: "test-eefa2.firebaseapp.com",
+	//         databaseURL: "https://test-eefa2.firebaseio.com",
+	//         projectId: "test-eefa2",
+	//         storageBucket: "test-eefa2.appspot.com",
+	//         messagingSenderId: "334050492647"
+	//     };
+	//     firebase.initializeApp(config);
+	//     const dataref = firebase.database().ref("angle");
+    //     const dataref1 = firebase.database().ref("pressure");
+    //  //   const dataref2 = firebase.database().ref("temprature");
+    //    // const dataref3 = firebase.database().ref("Object");
+        
+    //     dataref.on('value', snap =>{
+    //         var val=snap.val();
+    //     });
+        
+    //     dataref1.on('value', snap =>{
+    //         var val=snap.val();
+    //         var pressure = document.querySelector('#pressure');
+    //         pressure.setAttribute("value",val+" Pa");
+    //     });
+
+        //  dataref2.on('value', snap =>{
+        //     var val=snap.val();
+        //     var temprature = document.querySelector('#temprature');
+        //     temprature.setAttribute("value",val+"°C");
+        // });
+
+        // dataref3.on('value', snap =>{
+        //     var val=snap.val();
+        //     var angle1 = document.querySelector('#angle1');
+        //     var angle2 = document.querySelector('#angle2');
+        //     var angle3 = document.querySelector('#angle3');
+        //     angle1.setAttribute("value",val.angle1);
+        //     angle2.setAttribute("value",val.angle2);
+        //     angle3.setAttribute("value",val.angle3);
+        // });
+
+            </script>
+        <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+
+    </head>
+        <body style='margin : 0px; overflow: hidden;'>
+        <p>
+                <button id="connect">Connect</button> <span id="status"></span>
+        </p>
+        <a-scene embedded arjs='sourceType: webcam;'>
+              <a-assets>
+                  <img id="rotation" src="rotation.png" />
+                  <img id="pressure" src="pressure.png"/>
+                  <img id="temperature" src="temperature.png">
+              </a-assets>
+
+<!-- main marker area -->
+    <a-marker preset='hiro'>
+           
+        <!-- angle1 sensor region -->
+            <a-image src="#rotation"  rotation="270 0 0" height="0.4" width="0.4" position="-1.5 0 -1.2" opacity="1"></a-image>
+            <a-text value="1°" id="angle1"  rotation="270 0 0" position="-1.5 0 -1.2"  width="4" color="black"></a-text>
+        <!-- angle1 sensor end -->
+
+        <!-- angle2 sensor region -->
+            <a-image src="#rotation"  rotation="270 0 0" height="0.4" width="0.4" position="-3 0 -3.2" opacity="1"></a-image>
+            <a-text value="5°" id="angle2"  rotation="270 0 0" position="-3 0 -3.2"  width="4" color="black"></a-text>
+        <!-- angle2 sensor end -->
+    
+        <!-- angle3 sensor region -->
+            <a-image src="#rotation"  rotation="270 0 0" height="0.4" width="0.4" position="-4.5 0 -1.5" opacity="1"></a-image>
+            <a-text value="0°" id="angle3"  rotation="270 0 0" position="-4.5 0 -1.5"  width="4" color="black"></a-text>
+        <!-- angle3 sensor end -->
+        
+        <!-- pressure sensor region -->
+            <a-image src="#pressure"  rotation="270 0 0" height="0.4" width="0.4" position="-4 0 -1.1"></a-image>
+            <a-text value="200 Pa" id="pressure"  rotation="270 0 0" position="-4 0 -1.1"  width="4" color="black"></a-text>
+        <!-- pressure sensor end -->
+
+        <!-- Temprature sensor region -->
+            <a-image src="#temperature"  rotation="270 0 0" height="0.4" width="0.4" position="0 0 -1" opacity="1"></a-image>
+            <a-text value="20°C" id="temprature"  rotation="270 0 0" position="0 0 -1"  width="4" color="black"></a-text>
+            <!-- Temprature sensor end -->
+            
+        </a-marker>
+<!-- main marker end   -->
+
+
+        <!-- <a-marker preset='kanji'>
+                    <a-box color="orange"  position="0 0.5 0" rotation="0 0 -0.5" depth="1.5" height="0.01" width="2.5">      
+                        </a-box>
+                        <a-text value="Pressure Sensor:"   rotation="270 0 0" position="-1 0.6 -0.3"  width="6" color="black"></a-text>                        
+                        <a-text value="Hello A-Frame!" id="pressureSensor"  rotation="270 0 0" position="-1 0.6 0"  width="4" color="black"></a-text>
+            </a-marker> -->
+            <a-entity camera></a-entity>
+          </a-scene>
+        </body>
+</html>
