@@ -6,7 +6,7 @@
       let sendButton = document.querySelector("#send");
       let valPos = document.querySelector("#valPos");
       let valVolt = document.querySelector("#valVolt");
-      let temp = document.querySelector("#temp");
+      let dial = document.querySelector("#dial");
       let statusDisplay = document.querySelector('#status');
       let port;
       let value, valueTradcPos, valueTradcVol;
@@ -22,7 +22,7 @@
             if (value.includes("Pos")) {
                 valueTradcPos = value.substr(3, value.length - 1);
                 //valPos.textContent = valueTradcPos.charCodeAt().toString();
-                temp.setAttribute('value', valueTradcPos.charCodeAt().toString());
+                dial.setAttribute('value', valueTradcPos.charCodeAt().toString());
             } 
             // else if (value.includes("Vol")) {
             //     valueTradcVol = value.substr(3, value.length - 1);
