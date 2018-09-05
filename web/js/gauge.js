@@ -1,24 +1,39 @@
 AFRAME.registerPrimitive('a-gauge', {
     defaultComponents: {
       gauge: {}
+    },
+    mappings: {
+      value: 'gauge.value'
     }
   });
   AFRAME.registerComponent('gauge', {
+    schema: {
+      value : {type: 'number', default: true, min: 0, max: 360}
+    },
     init: function() {
       console.log('Hello, World!');
       this.el.innerHTML =
         `
       <a-circle src="#gauge" radius="1" segment="200">
-        <a-entity  id="seconds" line="start: 0, 0, 0.005; end: 0 0.625 0.005; color: black" scale="1 1 1">
+        <a-entity  id="hand" line="start: -0.023, 0, 0.005; end: 0 0.625 0.005; color: black" scale="1 1 1">
           <a-image src="#gauge-hand" material="width:10" geometry="height:0.5;width:0.5" visible="" position="-0.026625959998102956 0.1636291153065707 0.008" rotation="0 0 31"></a-image>
-        </a-entity>
-        <a-entity id="minutes" line="start: 0, 0, 0.005; end: 0 0.5 0.005; color: black" scale="1 1 1">
-        </a-entity>
-        <a-entity id="hours" line="start: 0, 0, 0.005; end: 0 0.35 0.005; color: black" scale="1 1 1">
         </a-entity>
       </a-circle>
         `;
-      let temp = 0.5 / 60;
+
+      //   this.el.innerHTML =
+      //   `
+      // <a-circle src="#gauge" radius="1" segment="200">
+      //   <a-entity  id="hand" line="start: 0, 0, 0.005; end: 0 0.625 0.005; color: black" scale="1 1 1">
+      //     <a-image src="#gauge-hand" material="width:10" geometry="height:0.5;width:0.5" visible="" position="-0.026625959998102956 0.1636291153065707 0.008" rotation="0 0 31"></a-image>
+      //   </a-entity>
+      //   <a-entity id="minutes" line="start: 0, 0, 0.005; end: 0 0.5 0.005; color: black" scale="1 1 1">
+      //   </a-entity>
+      //   <a-entity id="hours" line="start: 0, 0, 0.005; end: 0 0.35 0.005; color: black" scale="1 1 1">
+      //   </a-entity>
+      // </a-circle>
+      //   `;
+      /*let temp = 0.5 / 60;
   
       function startTime() {
         var today = new Date();
@@ -34,6 +49,11 @@ AFRAME.registerPrimitive('a-gauge', {
   
         var t = setTimeout(startTime, 1000);
       }
-      startTime();
+      startTime();*/
+    },
+    update: function (oldData) {
+      var data = this.data;
+      var el = this.el;
+      document.getElementById('hand').object3D.rotation.z = -THREE.Math.degToRad(6) * data.value;
     }
   });

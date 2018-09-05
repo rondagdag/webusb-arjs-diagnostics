@@ -5,6 +5,12 @@
         <script src="js/gauge.js" charset="utf-8"></script>
         <script src="js/serial.js"></script>
         <script src="js/data.js"></script>
+
+<!-- 
+        <script src="components/canvas-updater.js"></script>
+        <script src="components/draw-canvas-rectangles.js"></script>
+        <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script> -->
+
     </head>
         <body style='margin : 0px; overflow: hidden;'>
         <div style='position: fixed; top: 10px; width:100%; text-align: left;z-index:1; color: grey;'>
@@ -19,6 +25,7 @@
             <img id="temperature" src="images/temperature.png">
             <img id="gauge" src="images/gauge.png"/>
             <img id="gauge-hand" src="images/gauge-hand.png"/>
+            <canvas id="helloWorldCanvas" crossOrigin="anonymous"></canvas>
         </a-assets>
   
         <!-- main marker area -->
@@ -37,8 +44,16 @@
             <a-image src="#rotation"  rotation="270 0 0" height="0.4" width="0.4" position="0 0 -0.5" opacity="1"></a-image>
             <a-text value="20°C" id="dial" rotation="270 0 0" position="0 0 -0.5"  width="4" color="black"></a-text>
             <a-entity position="0 1 -0.5" rotation="270 0 0" >
-                <a-gauge></a-gauge>
+                <a-gauge value=50></a-gauge>
             </a-entity>
+
+            <!-- <a-entity material="shader: flat; src: #helloWorldCanvas"
+                geometry="primitive: plane; width: 1; height: 1"
+                position="0 1 -0.5" rotation="270 0 0"
+                canvas-updater
+                draw-canvas-rectangles="#helloWorldCanvas">
+            </a-entity>    -->
+
             <!-- Temprature sensor end -->
         </a-marker>
         <!-- main marker end   -->
