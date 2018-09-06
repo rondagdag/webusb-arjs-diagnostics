@@ -15,7 +15,7 @@ AFRAME.registerPrimitive('a-gauge', {
       this.el.innerHTML =
         `
       <a-circle src="#gauge" radius="1" segment="200">
-        <a-entity  id="hand" line="start: -0.023, 0, 0.005; end: 0 0.625 0.005; color: black" scale="1 1 1">
+        <a-entity id="hand" line="start:-0.023 0 0.005;end:0 0.625 0.005;color:black" scale="" position="-0.023 0 0">
           <a-image src="#gauge-hand" material="width:10" geometry="height:0.5;width:0.5" visible="" position="-0.026625959998102956 0.1636291153065707 0.008" rotation="0 0 31"></a-image>
         </a-entity>
       </a-circle>
