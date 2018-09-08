@@ -5,65 +5,6 @@
         <script src="js/gauge.js" charset="utf-8"></script>
         <script src="js/serial.js"></script>
         <script src="js/data.js"></script>
-        <!-- <script src="js/testgauge.js" charset="utf-8"></script> -->
-        <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
-        <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.5/all/gauge.min.js"></script>
-<!-- 
-        <script src="components/canvas-updater.js"></script>
-        <script src="components/draw-canvas-rectangles.js"></script>
-        <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script> -->
-        <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
-        <!-- <script>
-            google.charts.load('current', {'packages':['gauge']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                var gauge = document.getElementById('gauge-entity');
-                gauge.setAttribute('draw-canvas',"my-canvas");
-            };
-        </script> -->
-        <!-- <script type="text/javascript">
-            google.charts.load('current', {'packages':['gauge']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-
-                var data = google.visualization.arrayToDataTable([
-                ['Label', 'Value'],
-                ['Memory', 80],
-                ['CPU', 55],
-                ['Network', 68]
-                ]);
-
-                var options = {
-                width: 400, height: 120,
-                redFrom: 90, redTo: 100,
-                yellowFrom:75, yellowTo: 90,
-                minorTicks: 5
-                };
-                var htmlElement = document.getElementById('htmlElement');
-                var chart = new google.visualization.Gauge(htmlElement);
-
-                chart.draw(data, options);
-
-                setInterval(function() {
-                data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-                chart.draw(data, options);
-                }, 13000);
-                setInterval(function() {
-                data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-                chart.draw(data, options);
-                }, 5000);
-                setInterval(function() {
-                data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-                chart.draw(data, options);
-                }, 26000);
-
-                var gauge = document.getElementById('gauge-entity');
-                gauge.setAttribute('material',"shader: html; target: #htmlElement; fps: 60; ratio:width");
-                htmlElement.classList.toggle('hide');
-            }
-            </script> -->
     </head>
         <body style='margin : 0px; overflow: hidden;'>
         <div style='position: fixed; top: 10px; width:100%; text-align: left;z-index:1; color: grey;'>
@@ -96,9 +37,13 @@
 
             <a-image src="#rotation"  rotation="270 0 0" height="0.4" width="0.4" position="0 0 -0.5" opacity="1"></a-image>
             <a-text value="20°C" id="dial" rotation="270 0 0" position="0 0 -0.5"  width="4" color="black"></a-text>
-            <!-- <a-entity position="0 1 -0.5" rotation="270 0 0" >
+            <a-entity position="0 1 -0.5" rotation="270 0 0" >
                 <a-gauge value=0></a-gauge>
-            </a-entity> -->
+            </a-entity>
+
+            <a-entity position="0 5 -0.5" rotation="270 0 0" >
+                    <a-gauge value=15></a-gauge>
+                </a-entity>
 
             <!-- <a-entity material="shader: flat; src: #helloWorldCanvas"
                 geometry="primitive: plane; width: 1; height: 1"
@@ -116,8 +61,8 @@
                 position="0 1 -0.5" rotation="270 0 0">
             </a-entity>    -->
 
-            <a-entity id="gauge-entity" geometry="primitive: plane; width: 5; height: 5" 
-            rotation="270 0 0" position="0 0 -0.75"></a-entity>
+            <!-- <a-entity id="gauge-entity" geometry="primitive: plane; width: 5; height: 5" 
+            rotation="270 0 0" position="0 0 -0.75"></a-entity> -->
 
             <!-- Temprature sensor end -->
         </a-marker>
@@ -133,7 +78,7 @@
               <a-entity camera></a-entity>
             </a-scene>
 
-            <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -2; overflow: hidden">
+            <!-- <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -2; overflow: hidden">
                     <div id="htmlElement"><canvas id="canvas-id" data-type="radial-gauge"></canvas></div>
             </div>
             <script>
@@ -144,6 +89,6 @@
                 var gauge = document.getElementById('gauge-entity');
                 gauge.setAttribute('material',"shader: html; target: #htmlElement; fps: 60; ratio:width");
                 htmlElement.classList.toggle('hide');
-            </script>
+            </script> -->
         </body>
 </html>

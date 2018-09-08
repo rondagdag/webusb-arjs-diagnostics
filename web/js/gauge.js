@@ -6,16 +6,22 @@ AFRAME.registerPrimitive('a-gauge', {
       value: 'gauge.value'
     }
   });
+
+  function randomId () {
+    return `gauge-${Math.floor(Math.random() * 0xFFFFFFFFFF).toString(16)}`
+  }
+
   AFRAME.registerComponent('gauge', {
     schema: {
       value : {type: 'number', default: true, min: 0, max: 360}
     },
     init: function() {
       console.log('Hello, World!');
+      this.gaugeID = randomId();
       this.el.innerHTML =
         `
       <a-circle src="#gauge" radius="1" segment="200">
-        <a-entity id="hand" line="start:-0.023 0 0.005;end:0 0.625 0.005;color:black" scale="" position="-0.023 0 0">
+        <a-entity id="${this.gaugeID}" line="start:-0.023 0 0.005;end:0 0.625 0.005;color:black" position="-0.023 0 0">
           <a-image src="#gauge-hand" material="width:10" geometry="height:0.5;width:0.5" visible="" position="-0.026625959998102956 0.1636291153065707 0.008" rotation="0 0 31"></a-image>
         </a-entity>
       </a-circle>
@@ -53,7 +59,8 @@ AFRAME.registerPrimitive('a-gauge', {
     },
     update: function (oldData) {
       var data = this.data;
-      var el = this.el;
-      document.getElementById('hand').object3D.rotation.z = -THREE.Math.degToRad(6) * data.value;
+      //var el = this.el;
+      var gaugeID = this.gaugeID;
+      document.getElementById(gaugeID).object3D.rotation.z = -THREE.Math.degToRad(6) * data.value;
     }
   });
